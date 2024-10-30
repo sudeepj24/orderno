@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        .thank-you-message {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .thank-you-message h2 {
+            font-size: 24px;
+            color: #4CAF50;
+        }
+        
+        .thank-you-message p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-message">
+        <h2>Thank You for Your Order!</h2>
+        <p id="orderMessage">Processing your order...</p>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const orderId = params.get('orderid');
+        
+        if (orderId) {
+            document.getElementById("orderMessage").innerText = `Thank you for ordering, your order id is: ${orderId}`;
+        } else {
+            document.getElementById("orderMessage").innerText = "Order ID not found.";
+        }
+    </script>
+</body>
+</html>
